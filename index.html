@@ -14,10 +14,8 @@
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
     html, body { height: 100%; background: #0a0a0a; color: #f0ece4; font-family: Georgia, serif; overflow-x: hidden; }
     body { padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
-
     #app { max-width: 520px; margin: 0 auto; padding: 24px 16px 40px; }
 
-    /* Header */
     .header { text-align: center; margin-bottom: 28px; }
     .header-sub { font-size: 11px; letter-spacing: 6px; color: #888; text-transform: uppercase; margin-bottom: 8px; }
     .header h1 {
@@ -27,12 +25,8 @@
     }
     .header-desc { font-size: 13px; color: #666; margin-top: 8px; letter-spacing: 2px; }
 
-    /* Week grid */
     .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; margin-bottom: 24px; }
-    .week-cell {
-      padding: 10px 3px; border-radius: 10px; text-align: center; cursor: pointer;
-      background: #161616; border: 1px solid #222; transition: all 0.2s; user-select: none;
-    }
+    .week-cell { padding: 10px 3px; border-radius: 10px; text-align: center; cursor: pointer; background: #161616; border: 1px solid #222; transition: all 0.2s; user-select: none; }
     .week-cell.rest { cursor: default; background: #111; border-color: #1e1e1e; }
     .week-cell.active { transform: translateY(-2px); }
     .week-cell-day { font-size: 10px; color: #444; font-family: monospace; margin-bottom: 4px; }
@@ -41,69 +35,75 @@
     .week-cell-label { font-size: 8px; color: #333; margin-top: 3px; line-height: 1.3; }
     .week-cell.active .week-cell-label { color: #fff; }
 
-    /* Tab buttons */
     .tabs { display: flex; gap: 6px; margin-bottom: 20px; }
-    .tab-btn {
-      flex: 1; padding: 9px 3px; border-radius: 10px; border: 1px solid #222;
-      background: #111; color: #444; cursor: pointer; font-size: 10px;
-      font-family: Georgia, serif; letter-spacing: 0.3px; transition: all 0.2s; line-height: 1.4;
-    }
+    .tab-btn { flex: 1; padding: 9px 3px; border-radius: 10px; border: 1px solid #222; background: #111; color: #444; cursor: pointer; font-size: 10px; font-family: Georgia, serif; letter-spacing: 0.3px; transition: all 0.2s; line-height: 1.4; }
 
-    /* Session card */
     .card { background: #111; border-radius: 16px; overflow: hidden; margin-bottom: 24px; }
     .card-header { padding: 20px 20px 16px; }
     .card-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
-    .cardio-badge {
-      font-size: 9px; letter-spacing: 1px; padding: 2px 8px; border-radius: 20px;
-    }
+    .cardio-badge { font-size: 9px; letter-spacing: 1px; padding: 2px 8px; border-radius: 20px; }
     .card-title { font-size: 22px; font-weight: 700; margin-top: 4px; }
     .card-subtitle { font-size: 12px; color: #555; margin-top: 4px; }
 
-    /* Progress */
     .progress-row { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; }
     .progress-bar-wrap { flex: 1; height: 3px; background: #222; border-radius: 2px; overflow: hidden; margin-right: 12px; }
     .progress-bar { height: 100%; border-radius: 2px; transition: width 0.4s ease; }
     .progress-count { font-size: 11px; color: #555; white-space: nowrap; }
-    .progress-ring {
-      width: 52px; height: 52px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 12px; font-weight: 700; color: #aaa; flex-shrink: 0;
-    }
+    .progress-ring { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #aaa; flex-shrink: 0; }
 
-    /* Zone pills (cardio) */
     .zone-pills { display: flex; gap: 8px; margin-top: 12px; }
-    .zone-pill {
-      flex: 1; text-align: center; padding: 6px 4px; border-radius: 8px;
-      background: #1a1a1a; border: 1px solid #222; font-size: 9px; color: #444; letter-spacing: 0.5px;
-    }
+    .zone-pill { flex: 1; text-align: center; padding: 6px 4px; border-radius: 8px; background: #1a1a1a; border: 1px solid #222; font-size: 9px; color: #444; letter-spacing: 0.5px; }
 
-    /* Exercise list */
-    .exercise-list { padding: 12px 16px; }
+    /* Exercise item – now vertical with log area */
+    .exercise-list { padding: 8px 16px; }
     .exercise-item {
-      display: flex; align-items: center; gap: 14px; padding: 13px 0;
-      border-bottom: 1px solid #1a1a1a; cursor: pointer; transition: opacity 0.2s; user-select: none;
+      padding: 12px 0;
+      border-bottom: 1px solid #1a1a1a;
+      transition: opacity 0.2s;
     }
     .exercise-item:last-child { border-bottom: none; }
-    .exercise-item.done { opacity: 0.4; }
-    .checkbox {
-      width: 22px; height: 22px; border-radius: 6px; border: 2px solid #2a2a2a;
-      background: transparent; flex-shrink: 0; display: flex; align-items: center;
-      justify-content: center; font-size: 12px; transition: all 0.2s;
-    }
-    .exercise-name { font-weight: 600; font-size: 15px; }
+    .exercise-item.done { opacity: 0.45; }
+
+    .ex-top { display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none; }
+    .checkbox { width: 22px; height: 22px; border-radius: 6px; border: 2px solid #2a2a2a; background: transparent; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 12px; transition: all 0.2s; }
+    .exercise-name { font-weight: 600; font-size: 15px; flex: 1; }
     .exercise-item.done .exercise-name { text-decoration: line-through; }
-    .exercise-note { font-size: 12px; color: #555; margin-top: 2px; }
+    .exercise-note { font-size: 11px; color: #555; margin-top: 2px; flex: 1; }
     .exercise-sets { font-size: 13px; font-family: monospace; font-weight: 700; text-align: right; flex-shrink: 0; }
 
-    /* Tips */
+    /* Log row – weight + reps inputs */
+    .ex-log {
+      display: flex; gap: 8px; margin-top: 9px; padding-left: 34px;
+    }
+    .log-field {
+      flex: 1; display: flex; flex-direction: column; gap: 4px;
+    }
+    .log-label { font-size: 9px; color: #444; letter-spacing: 1px; text-transform: uppercase; }
+    .log-input {
+      background: #181818; border: 1px solid #2a2a2a; border-radius: 8px;
+      color: #f0ece4; font-family: monospace; font-size: 14px; font-weight: 600;
+      padding: 7px 10px; width: 100%; outline: none; transition: border-color 0.2s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .log-input:focus { border-color: var(--day-color, #555); }
+    .log-input::placeholder { color: #333; font-weight: 400; }
+
+    /* Download button */
+    .download-btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 14px; border-radius: 12px; border: 1px solid #2a2a2a;
+      background: #141414; color: #888; cursor: pointer; font-size: 13px;
+      font-family: Georgia, serif; letter-spacing: 1px; transition: all 0.2s;
+      margin-bottom: 20px;
+    }
+    .download-btn:active { background: #1e1e1e; color: #bbb; }
+
     .tips { background: #111; border: 1px solid #1e1e1e; border-radius: 14px; padding: 18px 20px; }
     .tips-title { font-size: 11px; letter-spacing: 3px; color: #555; text-transform: uppercase; margin-bottom: 14px; }
     .tip { display: flex; gap: 10px; margin-bottom: 10px; font-size: 13px; color: #777; line-height: 1.5; }
     .tip-arrow { color: #E67E22; flex-shrink: 0; margin-top: 1px; }
-
     .footer { text-align: center; margin-top: 28px; font-size: 11px; color: #333; letter-spacing: 2px; }
 
-    /* Install banner */
     #install-banner {
       display: none; position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
       background: #1a1a1a; border: 1px solid #333; border-radius: 14px; padding: 14px 20px;
@@ -111,10 +111,7 @@
     }
     #install-banner p { font-size: 13px; color: #aaa; margin-bottom: 12px; line-height: 1.5; }
     #install-banner .btn-row { display: flex; gap: 8px; }
-    #install-banner button {
-      flex: 1; padding: 10px; border-radius: 10px; border: none; cursor: pointer;
-      font-size: 13px; font-family: Georgia, serif;
-    }
+    #install-banner button { flex: 1; padding: 10px; border-radius: 10px; border: none; cursor: pointer; font-size: 13px; font-family: Georgia, serif; }
     #install-btn { background: #C0392B; color: #fff; }
     #dismiss-btn { background: #222; color: #666; }
   </style>
@@ -197,19 +194,27 @@ const tips = [
   "Warm-up: 2 Aufwärmsätze vor jedem Hauptbeweger im Gym.",
 ];
 
-// State
+// ── State ──────────────────────────────────────────────────────────
 let activeDay = 0;
-let checked = JSON.parse(localStorage.getItem('arnold-checked') || '{}');
+let checked  = JSON.parse(localStorage.getItem('arnold-checked')  || '{}');
+let logData  = JSON.parse(localStorage.getItem('arnold-log')      || '{}');
 
-function saveChecked() {
-  localStorage.setItem('arnold-checked', JSON.stringify(checked));
-}
+function saveChecked() { localStorage.setItem('arnold-checked', JSON.stringify(checked)); }
+function saveLog()     { localStorage.setItem('arnold-log',     JSON.stringify(logData)); }
 
 function toggleCheck(dayIdx, exIdx) {
   const key = `${dayIdx}-${exIdx}`;
   checked[key] = !checked[key];
   saveChecked();
-  render();
+  renderExercises();
+  renderProgress();
+}
+
+function updateLog(dayIdx, exIdx, field, value) {
+  const key = `${dayIdx}-${exIdx}`;
+  if (!logData[key]) logData[key] = {};
+  logData[key][field] = value;
+  saveLog();
 }
 
 function setDay(idx) {
@@ -221,90 +226,176 @@ function hex(color, alpha) {
   return color + Math.round(alpha * 255).toString(16).padStart(2, '0');
 }
 
-function render() {
-  const current = plan[activeDay];
-  const doneKeys = current.exercises.map((_, i) => `${activeDay}-${i}`).filter(k => checked[k]);
-  const doneCount = doneKeys.length;
-  const progress = Math.round((doneCount / current.exercises.length) * 100);
+// ── Partial renders (avoid full DOM rebuild while typing) ──────────
+function renderProgress() {
+  const current  = plan[activeDay];
+  const doneCount = current.exercises.filter((_, i) => checked[`${activeDay}-${i}`]).length;
+  const progress  = Math.round((doneCount / current.exercises.length) * 100);
   const c = current.color;
 
-  // Week grid
-  const weekHTML = schedule.map((s, i) => {
-    const isRest = s.session === null;
+  const ring = document.getElementById('progress-ring');
+  if (ring) {
+    ring.style.background = `conic-gradient(${c} ${progress*3.6}deg,#222 0deg)`;
+    ring.style.color = progress === 100 ? c : '#aaa';
+    ring.textContent = progress + '%';
+  }
+  const bar = document.getElementById('progress-bar');
+  if (bar) bar.style.width = progress + '%';
+  const cnt = document.getElementById('progress-count');
+  if (cnt) cnt.textContent = `${doneCount}/${current.exercises.length} abgehakt`;
+}
+
+function renderExercises() {
+  const current = plan[activeDay];
+  const c = current.color;
+  const container = document.getElementById('exercise-list');
+  if (!container) return;
+  container.innerHTML = buildExercisesHTML(current, c);
+}
+
+function buildExercisesHTML(current, c) {
+  return current.exercises.map((ex, i) => {
+    const key  = `${activeDay}-${i}`;
+    const done = !!checked[key];
+    const log  = logData[key] || {};
+
+    const logRow = !current.isCardio ? `
+      <div class="ex-log">
+        <div class="log-field">
+          <div class="log-label">Gewicht (kg)</div>
+          <input class="log-input" type="number" inputmode="decimal" min="0" step="0.5"
+            placeholder="—" value="${log.weight || ''}"
+            style="--day-color:${c}"
+            oninput="updateLog(${activeDay},${i},'weight',this.value)"
+            onclick="event.stopPropagation()" />
+        </div>
+        <div class="log-field">
+          <div class="log-label">Wdh. / Satz</div>
+          <input class="log-input" type="number" inputmode="numeric" min="0"
+            placeholder="—" value="${log.repsActual || ''}"
+            style="--day-color:${c}"
+            oninput="updateLog(${activeDay},${i},'repsActual',this.value)"
+            onclick="event.stopPropagation()" />
+        </div>
+        <div class="log-field">
+          <div class="log-label">Notiz</div>
+          <input class="log-input" type="text" inputmode="text"
+            placeholder="—" value="${(log.note || '').replace(/"/g,'&quot;')}"
+            style="--day-color:${c};font-family:Georgia,serif;font-size:12px;font-weight:400"
+            oninput="updateLog(${activeDay},${i},'note',this.value)"
+            onclick="event.stopPropagation()" />
+        </div>
+      </div>` : '';
+
+    return `
+      <div class="exercise-item${done ? ' done' : ''}">
+        <div class="ex-top" onclick="toggleCheck(${activeDay},${i})">
+          <div class="checkbox" style="border-color:${done?c:'#2a2a2a'};background:${done?c:'transparent'};color:#fff">
+            ${done ? '✓' : ''}
+          </div>
+          <div style="flex:1">
+            <div class="exercise-name">${ex.name}</div>
+            <div class="exercise-note">${ex.note}</div>
+          </div>
+          <div class="exercise-sets" style="color:${c}">${ex.sets} × ${ex.reps}</div>
+        </div>
+        ${logRow}
+      </div>`;
+  }).join('');
+}
+
+// ── CSV Export ─────────────────────────────────────────────────────
+function downloadCSV() {
+  const today = new Date().toLocaleDateString('de-DE');
+  const rows  = [['Datum','Trainingstag','Übung','Sätze (Plan)','Wdh. (Plan)','Gewicht (kg)','Wdh. (ist)','Notiz','Erledigt']];
+
+  plan.forEach((session, dayIdx) => {
+    session.exercises.forEach((ex, exIdx) => {
+      const key  = `${dayIdx}-${exIdx}`;
+      const log  = logData[key] || {};
+      const done = checked[key] ? 'Ja' : 'Nein';
+      rows.push([
+        today,
+        session.label,
+        ex.name,
+        ex.sets,
+        ex.reps,
+        log.weight     || '',
+        log.repsActual || '',
+        (log.note || '').replace(/,/g, ';'),
+        done
+      ]);
+    });
+  });
+
+  const csv  = rows.map(r => r.map(v => `"${v}"`).join(',')).join('\n');
+  const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = `Arnold_Split_${today.replace(/\./g,'-')}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ── Full render ────────────────────────────────────────────────────
+function render() {
+  const current   = plan[activeDay];
+  const doneCount = current.exercises.filter((_, i) => checked[`${activeDay}-${i}`]).length;
+  const progress  = Math.round((doneCount / current.exercises.length) * 100);
+  const c         = current.color;
+
+  const weekHTML = schedule.map((s) => {
+    const isRest   = s.session === null;
     const isActive = !isRest && s.session === activeDay;
-    const col = isRest ? '#111' : plan[s.session].color;
-    const label = isRest ? 'Ruhe' : s.session === 3 ? 'Rad' : plan[s.session].label.split(' & ')[0];
-    return `<div class="week-cell${isRest ? ' rest' : ''}${isActive ? ' active' : ''}"
-      style="background:${isActive ? col : isRest ? '#111' : '#161616'};border-color:${isActive ? col : isRest ? '#1e1e1e' : '#222'}"
-      ${isRest ? '' : `onclick="setDay(${s.session})"`}>
+    const col      = isRest ? '#111' : plan[s.session].color;
+    const label    = isRest ? 'Ruhe' : s.session === 3 ? 'Rad' : plan[s.session].label.split(' & ')[0];
+    return `<div class="week-cell${isRest?' rest':''}${isActive?' active':''}"
+      style="background:${isActive?col:isRest?'#111':'#161616'};border-color:${isActive?col:isRest?'#1e1e1e':'#222'}"
+      ${isRest?'':` onclick="setDay(${s.session})"`}>
       <div class="week-cell-day">${s.day}</div>
-      <div class="week-cell-icon">${isRest ? '😴' : plan[s.session].icon}</div>
+      <div class="week-cell-icon">${isRest?'😴':plan[s.session].icon}</div>
       <div class="week-cell-label">${label}</div>
     </div>`;
   }).join('');
 
-  // Tabs
   const tabsHTML = plan.map((p, i) => {
     const isActive = activeDay === i;
     return `<button class="tab-btn" onclick="setDay(${i})"
-      style="border-color:${isActive ? p.color : '#222'};background:${isActive ? hex(p.color, 0.094) : '#111'};color:${isActive ? p.color : '#444'}">
-      ${p.icon}<br><span style="font-size:9px">${p.isCardio ? 'Rad' : p.label.split(' & ')[0]}</span>
+      style="border-color:${isActive?p.color:'#222'};background:${isActive?hex(p.color,0.094):'#111'};color:${isActive?p.color:'#444'}">
+      ${p.icon}<br><span style="font-size:9px">${p.isCardio?'Rad':p.label.split(' & ')[0]}</span>
     </button>`;
   }).join('');
 
-  // Progress ring
-  const deg = progress * 3.6;
-  const ringColor = progress === 100 ? c : '#aaa';
-  const ringHTML = `<div class="progress-ring"
-    style="background:conic-gradient(${c} ${deg}deg,#222 0deg);color:${ringColor}">${progress}%</div>`;
-
-  // Card header
   const cardHeaderHTML = `
     <div class="card-header" style="background:linear-gradient(135deg,${hex(c,0.133)},${hex(c,0.024)});border-bottom:1px solid ${hex(c,0.145)}">
       <div style="display:flex;justify-content:space-between;align-items:flex-start">
         <div>
           <div class="card-tag" style="color:${c}">
             ${current.day}
-            ${current.isCardio ? `<span class="cardio-badge" style="background:${hex(c,0.145)};color:${c}">AUSDAUER</span>` : ''}
+            ${current.isCardio?`<span class="cardio-badge" style="background:${hex(c,0.145)};color:${c}">AUSDAUER</span>`:''}
           </div>
           <div class="card-title">${current.icon} ${current.label}</div>
-          ${current.isCardio ? `<div class="card-subtitle">Zone 2 · Polarisiertes Training</div>` : ''}
+          ${current.isCardio?`<div class="card-subtitle">Zone 2 · Polarisiertes Training</div>`:''}
         </div>
-        ${!current.isCardio ? ringHTML : ''}
+        ${!current.isCardio?`<div id="progress-ring" class="progress-ring"
+          style="background:conic-gradient(${c} ${progress*3.6}deg,#222 0deg);color:${progress===100?c:'#aaa'}">${progress}%</div>`:''}
       </div>
-      ${!current.isCardio ? `
+      ${!current.isCardio?`
         <div class="progress-row" style="margin-top:14px">
           <div class="progress-bar-wrap">
-            <div class="progress-bar" style="width:${progress}%;background:${c}"></div>
+            <div id="progress-bar" class="progress-bar" style="width:${progress}%;background:${c}"></div>
           </div>
-          <div class="progress-count">${doneCount}/${current.exercises.length} abgehakt</div>
-        </div>` : `
+          <div id="progress-count" class="progress-count">${doneCount}/${current.exercises.length} abgehakt</div>
+        </div>`:`
         <div class="zone-pills">
-          ${['Zone 1','Zone 2 ✓','Zone 3','Zone 4'].map((z,i) => `
+          ${['Zone 1','Zone 2 ✓','Zone 3','Zone 4'].map((z,i)=>`
             <div class="zone-pill" style="${i===1?`background:${hex(c,0.188)};border-color:${c};color:${c}`:''}">
-              ${z}
-            </div>`).join('')}
+              ${z}</div>`).join('')}
         </div>`}
     </div>`;
 
-  // Exercises
-  const exHTML = current.exercises.map((ex, i) => {
-    const key = `${activeDay}-${i}`;
-    const done = !!checked[key];
-    return `<div class="exercise-item${done?' done':''}" onclick="toggleCheck(${activeDay},${i})">
-      <div class="checkbox" style="border-color:${done?c:'#2a2a2a'};background:${done?c:'transparent'};color:#fff">
-        ${done?'✓':''}
-      </div>
-      <div style="flex:1">
-        <div class="exercise-name">${ex.name}</div>
-        <div class="exercise-note">${ex.note}</div>
-      </div>
-      <div class="exercise-sets" style="color:${c}">${ex.sets} × ${ex.reps}</div>
-    </div>`;
-  }).join('');
-
-  // Tips
-  const tipsHTML = tips.map(t => `
+  const tipsHTML = tips.map(t=>`
     <div class="tip"><span class="tip-arrow">▸</span><span>${t}</span></div>`).join('');
 
   document.getElementById('app').innerHTML = `
@@ -317,8 +408,11 @@ function render() {
     <div class="tabs">${tabsHTML}</div>
     <div class="card">
       ${cardHeaderHTML}
-      <div class="exercise-list">${exHTML}</div>
+      <div id="exercise-list" class="exercise-list">${buildExercisesHTML(current, c)}</div>
     </div>
+    <button class="download-btn" onclick="downloadCSV()">
+      ⬇ Trainingslog als CSV herunterladen
+    </button>
     <div class="tips">
       <div class="tips-title">Hinweise zum Plan</div>
       ${tipsHTML}
@@ -327,27 +421,21 @@ function render() {
   `;
 }
 
-// Init
+// ── Init ──────────────────────────────────────────────────────────
 render();
-
-// Auto-select today's session
 (function() {
-  const todayIdx = new Date().getDay(); // 0=Sun
-  const map = [null, 0, 1, 2, 0, 1, 3]; // Sun=null,Mo=0,Di=1,Mi=2,Do=0,Fr=1,Sa=3
-  if (map[todayIdx] !== null && map[todayIdx] !== undefined) {
-    activeDay = map[todayIdx];
-    render();
-  }
+  const map = [null, 0, 1, 2, 0, 1, 3];
+  const d   = map[new Date().getDay()];
+  if (d !== null && d !== undefined) { activeDay = d; render(); }
 })();
 
-// PWA Install prompt
+// ── PWA Install ───────────────────────────────────────────────────
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', e => {
   e.preventDefault();
   deferredPrompt = e;
   document.getElementById('install-banner').style.display = 'block';
 });
-
 document.getElementById('install-btn').addEventListener('click', () => {
   if (deferredPrompt) {
     deferredPrompt.prompt();
@@ -357,15 +445,11 @@ document.getElementById('install-btn').addEventListener('click', () => {
     });
   }
 });
-
 document.getElementById('dismiss-btn').addEventListener('click', () => {
   document.getElementById('install-banner').style.display = 'none';
 });
 
-// Service Worker
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js');
-}
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
 </script>
 </body>
 </html>
