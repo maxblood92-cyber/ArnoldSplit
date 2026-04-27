@@ -1,14 +1,14 @@
-const CACHE = 'arnold-split-v1';
-const ASSETS = [
-  '/index.html',
-  '/manifest.json',
-  '/icon-192.png',
-  '/icon-512.png'
-];
+const CACHE = 'arnold-split-v2';
+const BASE = self.location.pathname.replace(/\/sw\.js$/, '');
 
 self.addEventListener('install', e => {
   e.waitUntil(
-    caches.open(CACHE).then(cache => cache.addAll(['/index.html', '/manifest.json']))
+    caches.open(CACHE).then(cache => cache.addAll([
+      BASE + '/index.html',
+      BASE + '/manifest.json',
+      BASE + '/icon-192.png',
+      BASE + '/icon-512.png',
+    ]))
   );
   self.skipWaiting();
 });
@@ -28,6 +28,6 @@ self.addEventListener('fetch', e => {
       const clone = res.clone();
       caches.open(CACHE).then(cache => cache.put(e.request, clone));
       return res;
-    }))
+    }).catch(() => caches.match(BASE + '/index.html')))
   );
 });
